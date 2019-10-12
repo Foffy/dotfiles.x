@@ -33,6 +33,9 @@ depends:
 	sudo apt-get install xclip # copy paste for terminal
 	sudo cp rxvt/urxvtclip /usr/lib/urxvt/perl/clipboard
 
+	# rofi depends
+	sudo apt-get install rofi
+
 desktop:
 	sudo apt-get install \
 		xbacklight \
