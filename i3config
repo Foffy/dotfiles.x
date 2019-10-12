@@ -35,11 +35,12 @@ bindsym $mod+shift+l exec i3lock -c 000000 -d & sudo /usr/sbin/pm-suspend
 bindsym Print exec scrot -u -q 100 ~/img/screenshots/screenshot-%y%m%d-%H%M%S.png
 
 # volume bindings
-bindsym Control+Up              exec ~/bin/sound "+1"
-bindsym Control+Down            exec ~/bin/sound "-1"
-bindsym XF86AudioRaiseVolume    exec ~/bin/sound "+1"
-bindsym XF86AudioLowerVolume    exec ~/bin/sound "-1"
-bindsym XF86AudioMute           exec ~/bin/sound "mute"
+bindsym Control+Up              exec amixer -q sset Master 1%+
+bindsym Control+Down            exec amixer -q sset Master 1%-
+bindsym XF86AudioRaiseVolume    exec amixer -q sset Master 1%+
+bindsym XF86AudioLowerVolume    exec amixer -q sset Master 1%-
+bindsym XF86AudioMute           exec amixer -D pulse set Master 1+ toggle
+
 
 # spotify bindings
 bindsym XF86AudioPlay exec ~/bin/spot
@@ -49,6 +50,8 @@ bindsym XF86AudioStop exec ~/bin/spot "stop"
 
 
 # Sreen brightness controls
+bindsym $mod+Control+Right           exec xbacklight -inc 10 # increase screen brightness
+bindsym $mod+Control+Left            exec xbacklight -dec 10 # decrease screen brightness
 bindsym XF86MonBrightnessUp     exec xbacklight -inc 2 # increase screen brightness
 bindsym XF86MonBrightnessDown   exec xbacklight -dec 2 # decrease screen brightness
 
